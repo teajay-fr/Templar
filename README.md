@@ -16,22 +16,35 @@ As Templight will probably be incorporated into clang the LLVM/clang license is 
 
 Templar was created by Zoltán Borok-Nagy so he holds the copyright on it.
 
+Dependencies
+============
+Templar uses following libraries:
+
+- Qt4 or Qt5
+- GraphViz (CGraph)
+- YamlCpp (for YAML file support, via PkgConfig)
+- protobuf (for protobuf file support)
+
 Build
 =====
 
+Make sure to check out the templight-tools submodule as well (e.g. `git submodule update --init`).
+Please be aware that this submodule might introduce further dependencies such as Boost.
+
 To build Templar run:
 
-qmake
+```
+cmake CMakeLists.txt
 make
+```
 
 in the source folder.
 After make the folder should contain an executable named "Templar".
 
-Eventually you need to explicitly add the graphviz include path:
+Usage
+=====
 
-qmake INCLUDEPATH+=/path/to/includes/of/graphviz
+After having created a compilation trace with `templight` you can start Templar (e.g. `./Templar`)
+and open the trace via the `File` menu. Once a trace has been loaded you can navigate it.
 
-Compatibility
-=============
-
-The current version has been compiled succesfully with Graphviz 2.34.0 and Qt4.8.5/Qt 5.2.0 on GCC 4.8.2 and Clang 3.5 (trunk 196048)
+For information on how to navigate through traces refer to the Wiki: https://github.com/schulmar/Templar/wiki/HowTo
